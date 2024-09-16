@@ -1,6 +1,7 @@
 import pygame
 import math
-import random
+import secrets
+
 # Initialize Pygame
 pygame.init()
 pygame.font.init()
@@ -159,7 +160,7 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             if button_reset.is_clicked(pygame.mouse.get_pos()):
-                pendulum = Pendulum(150, random.randint(-360, 360), WIDTH // 2, HEIGHT//2, 1, 0.21)
+                pendulum = Pendulum(150, secrets.SystemRandom().randint(-360, 360), WIDTH // 2, HEIGHT//2, 1, 0.21)
             if button_force_1.is_clicked(pygame.mouse.get_pos()):
                 pendulum.external_pivot_force = slider.value
             if button_force_0.is_clicked(pygame.mouse.get_pos()):
